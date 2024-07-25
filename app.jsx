@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AllPlayers from './components/ALLPLAYERS.jsx';
+import AllPlayers from './components/AllPlayers';
 import NewPlayerForm from './components/NewPlayerForm';
+import SinglePlayer from './components/SinglePlayer'; // Import the SinglePlayer component
 import { fetchPlayers } from './API';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -31,7 +32,10 @@ function App() {
                 <Routes>
                     <Route path="/" element={<AllPlayers players={filteredPlayers} />} />
                     <Route path="/new" element={<NewPlayerForm setPlayers={setPlayers} />} />
-                    {/* Add other routes as needed */}
+                    <Route 
+                        path="/players/:id" 
+                        element={<SinglePlayer players={players} />} 
+                    />
                 </Routes>
             </div>
         </Router>

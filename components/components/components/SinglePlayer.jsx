@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 const SinglePlayer = ({ players }) => {
     const { id } = useParams();
-    const player = players.find(p => p.id === id);
+    const player = players.find(p => p.id === parseInt(id)); // Parse ID to match the player's ID type.
 
     if (!player) return <h2>Player not found</h2>;
 
